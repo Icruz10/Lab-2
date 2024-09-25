@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+
+
+          var map = L.map('map', {
+              center: [38.16, -96.96],
+              zoom: 4
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 4,
+               minZoom: 4
+            }).addTo(map);
+			
+			var universityIcon = L.icon({
+			iconUrl: 'flag.png', // url that links to the icon image file, saved in the same folder as the current page 
+			iconSize:     [38, 38], // size of the icon image in pixels
+			iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+			popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+});
+		  var marker1 = L.marker([44.6,-110.56],{icon: universityIcon}).addTo(map);
+		  var marker2 = L.marker([41.4,-124.04],{icon: universityIcon}).addTo(map);
+		  var marker3 = L.marker([38.73,-109.58],{icon: universityIcon}).addTo(map);
+		 
+		  
+		     marker1.bindPopup("YellowStone National Park");
+		     marker2.bindPopup("Redwood National and State Parks");
+			 marker3.bindPopup("Arches National Park");
+
+		  var pic1 = '<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Yellowstone_National_Park_%28WY%2C_USA%29%2C_Grand_Prismatic_Spring_--_2022_--_2519.jpg" alt="YSNP" width="250">';
+          var pic2 = '<img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Redwood_National_Park%2C_fog_in_the_forest.jpg" alt="RWNP" width="250">';
+		  var pic3 = '<img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Double-O-Arch_Arches_National_Park_2.jpg" alt="ANP" width="250">';
+
+             marker1.bindPopup('<p style="color:seagreen; font-weight:bold"> YellowStone National Park </p>' + pic1);
+             marker2.bindPopup('<p style="color:seagreen; font-weight:bold"> Redwood National and State Parks </p>' + pic2);
+			 marker3.bindPopup('<p style="color:seagreen; font-weight:bold"> Arches National Park </p>' + pic3);
+        </script>
+   </body>
+</html>
